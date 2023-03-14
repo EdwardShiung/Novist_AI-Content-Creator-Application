@@ -13,10 +13,6 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    avatar:{
-        type: String,
-        required: true
-    },
     identity:{
         type: String,
         required: true
@@ -27,6 +23,6 @@ const UserSchema = mongoose.Schema({
     },
 })
 
-const User = mongoose.model('User', UserSchema);
 
-module.exports = { User };
+
+module.exports = mongoose.model('User', UserSchema);
