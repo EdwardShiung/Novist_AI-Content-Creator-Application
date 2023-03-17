@@ -1,0 +1,19 @@
+@url = http://localhost:3000/
+
+@json = Content-Type: application/json
+
+###
+#POST Register New User
+POST {{url}}api/user/register
+{{json}}
+
+{
+    "name": "Daisy",
+    "email": "daisy99@vt.edu",
+    "password": "123456",
+    "identity": "Admin"
+}
+
+###
+#GET List All User - Testing
+GET {{url}}api/user/users

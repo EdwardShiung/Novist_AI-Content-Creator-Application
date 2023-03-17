@@ -33,4 +33,12 @@ module.exports = app => {
             return res.status(500).json('Sever Problem');
         }
     })
-    }
+
+
+
+    //- List ALl User (Not In the Document --  Only for Testing)
+    app.get('/api/user/users', async (req,res) => {
+        res.send(await User.find());
+    })
+
+}

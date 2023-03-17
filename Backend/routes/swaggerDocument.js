@@ -1,5 +1,5 @@
-/**
- *-- Index.js file_User Swagger Schema
+/**-- Index.js file_User Swagger Schema
+ *
  *-- Purpose: Register & Login API
  *
  * @swagger
@@ -41,16 +41,14 @@
  *              date: 2023/04/30
  */
 
-/**
+/**-- The Register & Login Section
  * @swagger
  * tags:
  *  name: User
  *  description: User API for Register & Login
  */
 
-
- //- RegisterAPI
- /**
+ /**-- RegisterAPI Swagger
   * @swagger
   * /api/user/register:
   *     post:
