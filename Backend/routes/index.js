@@ -2,6 +2,8 @@ module.exports = app => {
 
     const User = require('../models/User');
     const bcrypt = require('bcrypt');
+    const jwt = require('jsonwebtoken');
+    const JWTKEY = require('../plugin/config/jwtkey');
 
     //RegisterAPI
     app.post('/api/user/register', async (req, res) => {
@@ -34,11 +36,41 @@ module.exports = app => {
         }
     })
 
-
-
     //- List ALl User (Not In the Document --  Only for Testing)
     app.get('/api/user/users', async (req,res) => {
         res.send(await User.find());
     })
+
+    //- LoginAPI
+    app.post('/api/user/login', async(req,res) =>{
+        const email = req.body.email;
+        const password = req.body.password;
+        try {
+            const user = await User.findOne({email});
+            if(!user){
+                return res.status(404).json('No User Existed')
+            }
+            const match = await bcrypt.compare(password, user.password);
+            if(match){
+                const potocal = {
+                    id: user.id,
+                    name: user.name,
+                    identity: user.identity
+                };
+                jwt.sign(potocal,JWTKEY.KEY, {expiresIn: 3000}, (err, token) =>{
+                    if(err) throw err;
+                    res.json({
+                        success: true,
+                        token: 'Bearer ' + token
+                    });
+                });
+            }else{
+                return res.status(400).json('Wrong Password');
+            }
+        } catch (err) {
+            console.err(err.message);
+            res.status(500).json('Sever Problem')
+        }
+    });
 
 }

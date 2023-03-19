@@ -17,3 +17,13 @@ POST {{url}}api/user/register
 ###
 #GET List All User - Testing
 GET {{url}}api/user/users
+
+###
+#POST Login
+POST {{url}}api/user/login
+{{json}}
+
+{
+    "email": "stianyu99@vt.edu",
+    "password": "123456"
+}
