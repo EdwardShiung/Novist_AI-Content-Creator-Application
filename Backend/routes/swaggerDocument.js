@@ -71,3 +71,29 @@
   *                 description: Server Error
   *
   */
+
+   /**-- LoginAPI Swagger
+  * @swagger
+  * /api/user/login:
+  *     post:
+  *         summary: User Login
+  *         tags: [User]
+  *         requestBody:
+  *             required: true
+  *             content:
+  *                 application/json:
+  *                     schema:
+  *                         $ref: '#/components/schemas/User'
+  *         responses:
+  *             200:
+  *                 description: User Created Successfully
+  *                 content:
+  *                     application/json:
+  *                         schema:
+  *                             $ref: '#/components/schemas/User'
+  *             400:
+  *                 description: Wrong Password
+  *             500:
+  *                 description: Server Error
+  *
+  */
