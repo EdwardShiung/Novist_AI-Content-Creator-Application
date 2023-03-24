@@ -4,6 +4,7 @@ module.exports = app => {
     const bcrypt = require('bcrypt');
     const jwt = require('jsonwebtoken');
     const JWTKEY = require('../plugin/config/jwtkey');
+    const passport = require('passport');
 
     //RegisterAPI
     app.post('/api/user/register', async (req, res) => {
@@ -73,4 +74,13 @@ module.exports = app => {
         }
     });
 
+    //- LoginAPI-Private_API
+    app.get('/api/user/current', passport.authenticate('jwt', { session:false }), (req,res) => {
+        res.json({
+            id: req.user.id,
+            name: req.user.name,
+            email: req.user.email,
+            identity: req.user.identity
+        });
+    })
 }
