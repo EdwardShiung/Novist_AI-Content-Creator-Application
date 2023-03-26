@@ -27,3 +27,8 @@ POST {{url}}api/user/login
     "email": "stianyu99@vt.edu",
     "password": "123456"
 }
+
+###
+#GET Current User Testing
+GET {{url}}api/user/current
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgyOTg4NzkxLCJleHAiOjE2ODI5OTE3OTF9.-BMp41rnljmtCLh1N6uT8MU9BELApP1a6QZ1M_D4gRs

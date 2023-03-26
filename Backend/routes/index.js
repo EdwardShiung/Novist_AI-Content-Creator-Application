@@ -1,13 +1,18 @@
 module.exports = app => {
 
+    const express = require('express');
+    const router = express.Router();
     const User = require('../models/User');
     const bcrypt = require('bcrypt');
     const jwt = require('jsonwebtoken');
     const JWTKEY = require('../plugin/config/jwtkey');
     const passport = require('passport');
 
-    //RegisterAPI
-    app.post('/api/user/register', async (req, res) => {
+    //Middleware For Router
+    app.use('/api/user', router);
+
+    //- RegisterAPI-Public_API
+    router.post('/register', async (req, res) => {
 
         try {
             // email already in DB
@@ -22,7 +27,7 @@ module.exports = app => {
                     email: req.body.email,
                     password: req.body.password,
                     identity: req.body.identity
-                })
+                });
 
                 const salt = await bcrypt.genSalt(10);
                 const hash = await bcrypt.hash(newUser.password, salt);
@@ -33,17 +38,17 @@ module.exports = app => {
             }
         } catch (err) {
             console.log(err);
-            return res.status(500).json('Sever Problem');
+            return res.status(500).json('Server Problem');
         }
-    })
+    });
 
-    //- List ALl User (Not In the Document --  Only for Testing)
-    app.get('/api/user/users', async (req,res) => {
+    //- List_ALl_UserAPI - Only for Testing-Public_API
+    router.get('/users', async (req,res) => {
         res.send(await User.find());
-    })
+    });
 
-    //- LoginAPI
-    app.post('/api/user/login', async(req,res) =>{
+    //- LoginAPI-Public
+    router.post('/login', async(req,res) =>{
         const email = req.body.email;
         const password = req.body.password;
         try {
@@ -70,12 +75,12 @@ module.exports = app => {
             }
         } catch (err) {
             console.err(err.message);
-            res.status(500).json('Sever Problem')
+            res.status(500).json('Server Problem')
         }
     });
 
     //- LoginAPI-Private_API
-    app.get('/api/user/current', passport.authenticate('jwt', { session:false }), (req,res) => {
+    router.get('/current', passport.authenticate('jwt', { session:false }), (req,res) => {
         res.json({
             id: req.user.id,
             name: req.user.name,
@@ -83,4 +88,4 @@ module.exports = app => {
             identity: req.user.identity
         });
     })
-}
+    }
