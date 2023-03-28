@@ -72,6 +72,22 @@
   *
   */
 
+  /**-- List_ALl_UserAPI Swagger
+ * @swagger
+ *  /api/user/users:
+ *      get:
+ *          summary: List All Users
+ *          tags: [User]
+ *          responses:
+ *              200:
+ *                  description: User List
+ *                  content:
+ *                      application/json:
+ *                          type: array
+ *                          item:
+ *                              $ref: '#/components/schemas/User'
+ */
+
    /**-- LoginAPI Swagger
   * @swagger
   * /api/user/login:
