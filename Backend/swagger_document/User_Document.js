@@ -28,6 +28,7 @@
  *                  description: User Password (JWT Salted)
  *              identity:
  *                  type: string
+ *                  enums: ['Admin','General']
  *                  description: Admin or Not Admin
  *              date:
  *                  type: string
@@ -72,7 +73,7 @@
   *
   */
 
-  /**-- List_ALl_UserAPI Swagger
+ /**-- List_ALl_UserAPI Swagger
  * @swagger
  *  /api/user/users:
  *      get:
@@ -88,7 +89,7 @@
  *                              $ref: '#/components/schemas/User'
  */
 
-   /**-- LoginAPI Swagger
+  /**-- LoginAPI Swagger
   * @swagger
   * /api/user/login:
   *     post:

@@ -18,9 +18,9 @@ app.use(bodyParser.json());
 //Passport Authentication
 require('./plugin/passport')(passport);
 
-//Routes Module
-require('./routes/index')(app);
-
+//-- Routes Module
+//User Module
+require('./routes/user_index')(app);
 
 
 const port = process.env.PORT || 3000;
