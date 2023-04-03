@@ -21,6 +21,8 @@ require('./plugin/passport')(passport);
 //-- Routes Module
 //User Module
 require('./routes/user_index')(app);
+//-Task Module
+require('./routes/task_index')(app);
 
 
 const port = process.env.PORT || 3000;

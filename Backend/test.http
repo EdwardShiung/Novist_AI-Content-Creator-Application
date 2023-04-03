@@ -1,11 +1,13 @@
-@url = http://localhost:3000/
+@url_user = http://localhost:3000/api/user/
+@url_task = http://localhost:3000/api/task/
 
-@json = Content-Type: application/json
+@json_user = Content-Type: application/json
+@json_task = content-Type: application/json
 
 ###
 #POST Register New User
-POST {{url}}api/user/register
-{{json}}
+POST {{url_user}}register
+{{json_user}}
 
 {
     "name": "Daisy",
@@ -16,12 +18,12 @@ POST {{url}}api/user/register
 
 ###
 #GET List All User - Testing
-GET {{url}}api/user/users
+GET {{url_user}}users
 
 ###
 #POST Login
-POST {{url}}api/user/login
-{{json}}
+POST {{url_user}}login
+{{json_user}}
 
 {
     "email": "stianyu99@vt.edu",
@@ -30,5 +32,18 @@ POST {{url}}api/user/login
 
 ###
 #GET Current User Testing
-GET {{url}}api/user/current
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgyOTg4NzkxLCJleHAiOjE2ODI5OTE3OTF9.-BMp41rnljmtCLh1N6uT8MU9BELApP1a6QZ1M_D4gRs
+GET {{url_user}}current
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjc4NDk2MzEzLCJleHAiOjE2Nzg0OTkzMTN9.4UZiXYBZdsLSJbFM1b5idgLiDXHW-ZdBt8Pw8oNpIoY
+
+###
+#POST Create a Task
+POST {{url_task}}create
+{{json_task}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgyOTkzNDMzLCJleHAiOjE2ODI5OTY0MzN9.qttS9olOzA4sZyaZGDwCTL7e-wQUAq5VxJAto86910U
+
+{
+    "userId": "640a6b5b04391ed7d7d8e009",
+    "taskName": "Software Engineer Project Proposal",
+    "status": "Pending",
+    "date": "2023/04/30"
+}
