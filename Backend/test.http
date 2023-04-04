@@ -35,6 +35,8 @@ POST {{url_user}}login
 GET {{url_user}}current
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjc4NDk2MzEzLCJleHAiOjE2Nzg0OTkzMTN9.4UZiXYBZdsLSJbFM1b5idgLiDXHW-ZdBt8Pw8oNpIoY
 
+##############################################################################################
+
 ###
 #POST Create a Task
 POST {{url_task}}create

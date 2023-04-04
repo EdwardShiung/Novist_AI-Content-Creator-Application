@@ -14,9 +14,21 @@ module.exports = app => {
                 {
                     url: 'http://localhost:3000',
                 }
-            ]
+            ],
+            components:{
+                securitySchemes: {
+                    bearerAuth: {
+                        type: "http",
+                        scheme: "bearer",
+                        bearerFormat: "JWT"
+                    }
+                }
+            },
+            security:{
+                bearerAuth: []
+            }
         },
-        apis: ['./routes/*js']
+        apis: ['./routes/*js', './swagger_document/*js']
     };
 
     const specs = swaggerJsDoc(option);

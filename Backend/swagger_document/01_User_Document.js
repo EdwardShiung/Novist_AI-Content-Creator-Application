@@ -1,4 +1,4 @@
-/**-- Index.js file_User Swagger Schema
+/**-- user_index.js file_User Swagger Schema
  *
  *-- Purpose: Register & Login API
  *
@@ -34,9 +34,9 @@
  *                  type: string
  *                  description: User Account Creation Time
  *          example:
- *              id: 8753makjlklklkhlkh
- *              name: Chris Brown
- *              email: dcbrown@vt.edu
+ *              id: 640a6b5b04391ed7d7d8e009
+ *              name: Edward
+ *              email: stianyu99@vt.edu
  *              password: 687yh8uhihbuih3eiudn23hkj98jnon
  *              identity: Admin
  *              date: 2023/04/30
@@ -103,7 +103,7 @@
   *                         $ref: '#/components/schemas/User'
   *         responses:
   *             200:
-  *                 description: User Created Successfully
+  *                 description: User Login Successfully
   *                 content:
   *                     application/json:
   *                         schema:
