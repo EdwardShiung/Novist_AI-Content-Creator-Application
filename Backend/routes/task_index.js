@@ -7,6 +7,7 @@ module.exports = app => {
     const jwt = require('jsonwebtoken');
     const JWTKEY = require('../plugin/config/jwtkey');
     const passport = require('passport');
+    const dayjs = require('dayjs');
 
     //Middleware For Router
     app.use('/api/task', router);
@@ -24,4 +25,43 @@ module.exports = app => {
             return res.status(500).json('Server Problem');
         }
     })
-    }
+
+    //- List_All_Task_API-Public_API
+    router.get('/taskList', passport.authenticate('jwt', {session: false}), async(req, res) => {
+        try {
+            const { type, day } = req.query ?? {};
+            const { id } = req.user;
+            const today = dayjs().format('YYYY-MM-DD');
+            let min, max;
+
+            switch(day) {
+            case 'today':
+                min = today;
+                max = today;
+                break;
+            case 'seven':
+                min = dayjs().subtract(7, 'day').format('YYYY-MM-DD');
+                max = today;
+                break;
+            case 'thirty':
+                min = dayjs().subtract(30, 'day').format('YYYY-MM-DD');
+                max = today;
+                break;
+            default:
+                break;
+            }
+
+            const query = {
+            userId: id,
+            ...(type && { type }),
+            ...(day && { date: { $lte: new Date(max), $gte: new Date(min) } })
+            };
+            const tasks = await Task.find(query);
+
+            res.status(200).json({tasks});
+        } catch (err) {
+            console.log(err);
+            res.status(500).json('Server Problem');
+        }
+    })
+}

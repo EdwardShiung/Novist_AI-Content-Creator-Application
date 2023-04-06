@@ -49,3 +49,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViM
     "status": "Pending",
     "date": "2023/04/30"
 }
+
+###
+#GET
+GET {{url_task}}taskList
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgyOTk1NDI4LCJleHAiOjE2ODI5OTg0Mjh9.HO3kuRuzTY3CuK53frYVVIi66DTqSsbGYSoK9wTveuA
