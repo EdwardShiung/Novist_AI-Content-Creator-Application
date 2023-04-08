@@ -69,3 +69,21 @@
   *                 description: Server Error
   *
   */
+
+ /**-- List_ALl_TasksAPI Swagger
+ * @swagger
+ *  /api/task/taskList:
+ *      get:
+ *          summary: List All Tasks
+ *          tags: [Task]
+ *          security:
+ *            - bearerAuth: []
+ *          responses:
+ *              200:
+ *                  description: Task List
+ *                  content:
+ *                      application/json:
+ *                          type: array
+ *                          item:
+ *                              $ref: '#/components/schemas/Task'
+ */
