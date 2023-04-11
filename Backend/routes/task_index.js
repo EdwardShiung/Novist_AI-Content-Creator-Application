@@ -64,4 +64,15 @@ module.exports = app => {
             res.status(500).json('Server Problem');
         }
     })
+
+    //- UpdateTask_API-Public_API
+    router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, res) => {
+        try {
+        const task = await Task.findByIdAndUpdate( req.params.id , {...req.body}, {new: true})
+        res.status(200).json({task})
+        } catch (err) {
+        console.log(err);
+        res.status(500).json('Server Problem');
+        }
+    })
 }

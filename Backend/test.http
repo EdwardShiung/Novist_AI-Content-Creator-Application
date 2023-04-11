@@ -51,6 +51,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViM
 }
 
 ###
-#GET
+#GET All Task List by User
 GET {{url_task}}taskList
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgyOTk1NDI4LCJleHAiOjE2ODI5OTg0Mjh9.HO3kuRuzTY3CuK53frYVVIi66DTqSsbGYSoK9wTveuA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjc4NTIzNTIyLCJleHAiOjE2Nzg1MjY1MjJ9.JJvFffn8WVFARaGp4BU533yXutRX5e6N0ycBQJ4ih-g
+
+###
+#PUT Update One of Tasks
+PUT {{url_task}}640bd3220f75f293b333bcf6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjc4NTIzNTIyLCJleHAiOjE2Nzg1MjY1MjJ9.JJvFffn8WVFARaGp4BU533yXutRX5e6N0ycBQJ4ih-g
+{{json_task}}
+
+{
+    "status":"Completed"
+}
