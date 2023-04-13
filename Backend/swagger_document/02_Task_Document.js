@@ -87,3 +87,38 @@
  *                          item:
  *                              $ref: '#/components/schemas/Task'
  */
+
+ /**-- Update_TaskAPI Swagger
+  * @swagger
+  *   /api/task/{id}:
+  *     put:
+  *       summary: Update the Task by Id
+  *       tags: [Task]
+  *       security:
+  *         - bearerAuth: []
+  *       parameters:
+  *         - in: path
+  *           name: id
+  *           schema:
+  *             type: string
+  *           required: true
+  *           description: update task by id
+  *       requestBody:
+  *           required: true
+  *           content:
+  *             application/json:
+  *               schema:
+  *                 $ref: '#/components/schemas/Task'
+  *       responses:
+  *         200:
+  *           description: The Task is Updated
+  *           content:
+  *             application/json:
+  *               schema:
+  *                 $ref: '#/components/schemas/Task'
+  *         404:
+  *           description: The task is not found
+  *         500:
+  *           description: Server Error
+  *
+  */
