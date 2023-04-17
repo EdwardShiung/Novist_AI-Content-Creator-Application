@@ -122,3 +122,29 @@
   *           description: Server Error
   *
   */
+
+
+  /**-- Delete_TaskAPI Swagger
+ * @swagger
+ * /api/task/{id}:
+ *  delete:
+ *      summary: Remove the task by id
+ *      tags: [Task]
+ *      security:
+ *          -   bearerAuth: []
+ *      parameters:
+ *          -   in: path
+ *              name: id
+ *              schema:
+ *                  type: string
+ *              required: true
+ *              description: delete task by id
+ *      responses:
+ *          200:
+ *              description: The Task is Deleted
+ *          404:
+ *              description: The task is not found
+ *          500:
+ *              description: Server Error
+ *
+ */
