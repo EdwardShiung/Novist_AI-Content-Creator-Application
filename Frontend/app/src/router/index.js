@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Index from '../views/Index'
 // import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    // path: '/',
-    // name: 'home',
-    // component: HomeView
+    path: '/',
+    redirect: '/index',
+  },
+  {
+    path: '/index',
+    name: 'index',
+    component: Index,
   },
 ]
 
