@@ -4,7 +4,7 @@ import DashboardLayout from '../views/DashboardLayout'
 import Dashboard from '../views/Dashboard'
 import NotFound from '../views/404'
 import LoginAndRegister from '../views/LoginAndRegister'
-// import HomeView from '../views/HomeView.vue'
+
 
 Vue.use(VueRouter)
 
