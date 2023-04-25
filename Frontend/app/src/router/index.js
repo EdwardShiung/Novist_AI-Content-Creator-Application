@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '../views/Index'
+import DashboardLayout from '../views/DashboardLayout'
+import Dashboard from '../views/Dashboard'
 import NotFound from '../views/404'
 import LoginAndRegister from '../views/LoginAndRegister'
 // import HomeView from '../views/HomeView.vue'
@@ -8,11 +9,7 @@ import LoginAndRegister from '../views/LoginAndRegister'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path:'*',
-    name:'/404',
-    component: NotFound,
-  },
+
   {
     path: '/login',
     name: 'login',
@@ -20,13 +17,20 @@ const routes = [
   },
   {
     path: '/',
-    redirect: '/index',
+    component: DashboardLayout,
+    redirect: '/dashboard',
+    children:[
+      {
+        path: "/dashboard",
+        name: "dashboard",
+        component: Dashboard,
+      },
+    ],
   },
   {
-    path: '/index',
-    component: Index,
-    children:[
-    ]
+    path:'*',
+    name:'404',
+    component: NotFound,
   },
 ]
 
