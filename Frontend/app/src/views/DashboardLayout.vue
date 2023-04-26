@@ -5,10 +5,10 @@
         <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel" />
         <sidebar-link to="/todolist" name="To-Do List" icon="ti-view-list-alt" />
         <sidebar-link
-          to="/writingcenter"
-          name="Writing Composition"
-          icon="ti-pencil-alt2"
-        />
+            to="/writingassistant"
+            name="Writing Composition"
+            icon="ti-pencil-alt2"
+          />
       </template>
 
     </side-bar>
