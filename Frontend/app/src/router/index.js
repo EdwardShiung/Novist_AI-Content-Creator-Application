@@ -4,6 +4,8 @@ import DashboardLayout from '../views/DashboardLayout'
 import Dashboard from '../views/Dashboard'
 import NotFound from '../views/404'
 import LoginAndRegister from '../views/LoginAndRegister'
+import TodoList from '../views/Todolist.vue'
+
 
 
 Vue.use(VueRouter)
@@ -24,6 +26,11 @@ const routes = [
         path: "/dashboard",
         name: "dashboard",
         component: Dashboard,
+      },
+      {
+        path: "todolist",
+        name: "todolist",
+        component: TodoList,
       },
     ],
   },

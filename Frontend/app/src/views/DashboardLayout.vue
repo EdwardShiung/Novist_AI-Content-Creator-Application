@@ -1,36 +1,38 @@
 <template>
-    <div class="wrapper">
-      <side-bar>
-        <template slot="links">
-          <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel" />
-          <sidebar-link to="/stats" name="To-Do List" icon="ti-view-list-alt" />
-          <sidebar-link
-            to="/table-list"
-            name="Writing Composition"
-            icon="ti-pencil-alt2"
-          />
-        </template>
+  <div class="wrapper">
+    <side-bar>
+      <template slot="links">
+        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel" />
+        <sidebar-link to="/todolist" name="To-Do List" icon="ti-view-list-alt" />
+        <sidebar-link
+          to="/writingcenter"
+          name="Writing Composition"
+          icon="ti-pencil-alt2"
+        />
+      </template>
 
-      </side-bar>
-      <div class="main-panel">
-        <top-navbar></top-navbar>
-      </div>
+    </side-bar>
+    <div class="main-panel">
+      <top-navbar></top-navbar>
+      <dashboard-content @click.native="toggleSidebar"> </dashboard-content>
     </div>
-  </template>
-  <style lang="scss"></style>
-  <script>
-  import TopNavbar from "../components/TopNavBar/TopNavbar.vue";
-
-  export default {
-    components: {
-      TopNavbar,
+  </div>
+</template>
+<style lang="scss"></style>
+<script>
+import TopNavbar from "../components/TopNavBar/TopNavbar.vue";
+import DashboardContent from "../views/Content.vue";
+export default {
+  components: {
+    TopNavbar,
+    DashboardContent
+  },
+  methods: {
+    toggleSidebar() {
+      if (this.$sidebar.showSidebar) {
+        this.$sidebar.displaySidebar(false);
+      }
     },
-    methods: {
-      toggleSidebar() {
-        if (this.$sidebar.showSidebar) {
-          this.$sidebar.displaySidebar(false);
-        }
-      },
-    },
-  };
-  </script>
+  },
+};
+</script>
