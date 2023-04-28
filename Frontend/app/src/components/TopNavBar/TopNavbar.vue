@@ -16,12 +16,14 @@
       </button>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="ti-settings"></i>
-              <p>Settings</p>
-            </a>
-          </li>
+          <drop-down
+            class="nav-item"
+            title="Settings"
+            title-classes="nav-link"
+            icon="ti-settings"
+          >
+            <a class="dropdown-item" href="#">Logout</a>
+          </drop-down>
         </ul>
       </div>
     </div>

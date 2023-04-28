@@ -10,7 +10,6 @@
             icon="ti-pencil-alt2"
           />
       </template>
-
     </side-bar>
     <div class="main-panel">
       <top-navbar></top-navbar>
