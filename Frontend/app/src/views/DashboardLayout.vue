@@ -26,6 +26,7 @@
     <div class="main-panel">
       <top-navbar></top-navbar>
       <dashboard-content @click.native="toggleSidebar"> </dashboard-content>
+      <content-footer></content-footer>
     </div>
   </div>
 </template>
@@ -34,11 +35,13 @@
 import TopNavbar from "../components/TopNavBar/TopNavbar.vue";
 import DashboardContent from "../views/Content.vue";
 import MobileMenu from "./MobileMenu";
+import ContentFooter from "./ContentFooter.vue";
 export default {
   components: {
     TopNavbar,
     DashboardContent,
     MobileMenu,
+    ContentFooter,
   },
   methods: {
     toggleSidebar() {
