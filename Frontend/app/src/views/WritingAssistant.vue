@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <h1 class="h4 text-center">Content Creator</h1>
                             <hr>
-                                <!-- input -->
+                            <!-- input -->
                             <div>
                                 <br>
                                 <form>
