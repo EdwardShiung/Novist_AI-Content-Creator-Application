@@ -12,6 +12,9 @@ require('./plugin/swagger')(app);
 //Middle Ware
 app.use(bodyParser.urlencoded({extended:false}));
 
+//Middle Ware - Cors
+app.use(require('cors')());
+
 //JSON
 app.use(bodyParser.json());
 
