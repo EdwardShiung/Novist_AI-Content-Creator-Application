@@ -10,13 +10,13 @@
                             <h2 class="title">Sign In</h2>
                             <div class="input_section">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder=" Email">
+                                <input type="text" v-model="signInModel.email" placeholder=" Email">
                             </div>
                             <div class="input_section">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder=" Password">
+                                <input type="password" v-model="signInModel.password" placeholder=" Password">
                             </div>
-                            <input type="submit" value="Sign In" class="btn solid" >
+                            <input type="submit" value="Sign In" class="btn solid" v-on:click="signInAccount">
                         </form>
 
                         <!-- Registeration -->
@@ -24,30 +24,30 @@
                             <h2 class="title">Create Account</h2>
                             <div class="input_section">
                                 <i class="fas fa-user"></i>
-                                <input type="text" placeholder=" User Name">
+                                <input type="text" v-model="member.name" placeholder=" User Name">
                             </div>
                             <div class="input_section">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder=" Email">
+                                <input type="text" v-model="member.email" placeholder=" Email">
                             </div>
                             <div class="input_section">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder=" Password">
+                                <input type="password" v-model="member.password" placeholder=" Password">
                             </div>
                             <div class="input_section">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder=" Confirm  Password">
+                                <input type="password" v-model="member.confirmedPassword" placeholder=" Confirm  Password">
                             </div>
                             <div class="input_section">
                                 <i class="fas fa-admin"></i>
-                                <select name="" id="">
+                                <select name="" id="" v-model="member.identity">
                                     <option value="">Select User</option>
-                                    <option value="">Admin</option>
-                                    <option value="">General</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="General">General</option>
                                 </select>
                                 <!-- <input type="password" placeholder=" Confirm  Password"> -->
                             </div>
-                            <input type="submit" value="Sign Up" class="btn solid" >
+                            <input type="submit" value="Sign Up" class="btn solid" v-on:click="signUpAccount">
                         </form>
                 </div>
             </div>
@@ -84,6 +84,17 @@
         data(){
             return{
                 isCreateAccount: false,
+                member:{
+                  name: '',
+                  email: '',
+                  password: '',
+                  confirmedPassword: '',
+                  identity: '',
+                },
+                signInModel:{
+                  email: '',
+                  password: '',
+                }
             };
         },
         methods:{
@@ -91,7 +102,26 @@
                 this.isCreateAccount = true;
             },
             handleSignIn(){
-                this.isCreateAccount = fals
+                this.isCreateAccount = false;
+            },
+            async signUpAccount(){
+              try {
+                // console.log(this.member)
+                const newMember = await this.$http.post('/user/register', this.member);
+                // console.log(newMember);
+                this.handleSignIn()
+              } catch (error) {
+                console.log(error);
+              }
+            },
+            async signInAccount(){
+              try {
+                const signInModel = await this.$http.post('/user/login', this.signInModel);
+                console.log(signInModel);
+                this.$router.push('/');
+              } catch (error) {
+                console.log(error);
+              }
             }
         }
     }
