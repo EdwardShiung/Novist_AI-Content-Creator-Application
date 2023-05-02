@@ -7,6 +7,10 @@ import PaperDashboard from "./plugins/paperDashboard";
 //MiddleWare For Paper Dashboard
 Vue.use(PaperDashboard);
 
+import http from '../src/plugins/http'
+Vue.prototype.$http = http;
+
+
 Vue.config.productionTip = false
 
 new Vue({
