@@ -59,7 +59,7 @@
                             <div class="content">
                                 <h2>Novist</h2>
                                 <p>New User? Create an Account?</p>
-                                <button class="btn transparent" id="create_account_btn" @click="isCreateAccount = true">Create Account</button>
+                                <button class="btn transparent" id="create_account_btn" @click="isCreateAccount = true">Sign Up</button>
                             </div>
                         </div>
 
