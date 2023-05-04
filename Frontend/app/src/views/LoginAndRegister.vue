@@ -78,7 +78,7 @@
     </template>
 
     <script>
-
+import jwt_decode from "jwt-decode";
     export default{
         name:'LoginAndRegister',
         data(){
@@ -116,9 +116,13 @@
             },
             async signInAccount(){
               try {
-                const signInModel = await this.$http.post('/user/login', this.signInModel);
-                console.log(signInModel);
-                this.$router.push('/');
+                this.$http.post('/user/login', this.signInModel).then(res => {
+
+              //Login & store token
+              const { token } = res.data;
+              localStorage.setItem("eleToken", token);
+              this.$router.push('/');
+            })
               } catch (error) {
                 console.log(error);
               }
