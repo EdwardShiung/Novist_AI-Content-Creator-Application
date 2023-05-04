@@ -86,4 +86,17 @@ module.exports = app => {
         res.status(500).json('Server Problem');
         }
     })
+
+    // Access-Right- Task
+    router.get('/allTasks', passport.authenticate('jwt', {session: false}), async (req, res) =>{
+        try {
+        console.log("Tell Me:", req.user.identity)
+        if(req.user.identity === "Admin"){
+            res.send(await Task.find());
+        }else{
+            return res.status(401).json("You don't have exces");
+        }
+        } catch (error) {
+        }
+  })
 }
