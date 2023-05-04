@@ -9,11 +9,11 @@
                         <form action="" class="sign_in_section">
                             <h2 class="title">Sign In</h2>
                             <div class="input_section">
-                                <i class="fas fa-envelope"></i>
+                                <i class="ti-email"></i>
                                 <input type="text" v-model="signInModel.email" placeholder=" Email">
                             </div>
                             <div class="input_section">
-                                <i class="fas fa-lock"></i>
+                                <i class="ti-lock"></i>
                                 <input type="password" v-model="signInModel.password" placeholder=" Password">
                             </div>
                             <input type="submit" value="Sign In" class="btn solid" v-on:click="signInAccount">
@@ -23,19 +23,19 @@
                         <form action="" class="sign_up_section">
                             <h2 class="title">Create Account</h2>
                             <div class="input_section">
-                                <i class="fas fa-user"></i>
+                                <i class="ti-user"></i>
                                 <input type="text" v-model="member.name" placeholder=" User Name">
                             </div>
                             <div class="input_section">
-                                <i class="fas fa-envelope"></i>
+                                <i class="ti-email"></i>
                                 <input type="text" v-model="member.email" placeholder=" Email">
                             </div>
                             <div class="input_section">
-                                <i class="fas fa-lock"></i>
+                                <i class="ti-lock"></i>
                                 <input type="password" v-model="member.password" placeholder=" Password">
                             </div>
                             <div class="input_section">
-                                <i class="fas fa-lock"></i>
+                                <i class="ti-lock"></i>
                                 <input type="password" v-model="member.confirmedPassword" placeholder=" Confirm  Password">
                             </div>
                             <div class="input_section">
