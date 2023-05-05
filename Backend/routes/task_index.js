@@ -115,4 +115,22 @@ module.exports = app => {
             } catch (error) {
         }
     })
+
+    //- Access-Right - Update Task
+    router.put('/:id', passport.authenticate('jwt', {session: false}), async(req, res) => {
+        try {
+            console.log("Tell Mew:", req.user.identity)
+            if(req.user.identity === "Admin"){
+                const task = await Task.findByIdAndUpdate( req.params.id , {...req.body}, {new: true})
+                console.log(task);
+                res.status(200).json({task})
+            }else{
+                return res.status(401).json("You don't have exces");
+            }
+        } catch (err) {
+        console.log(err);
+        res.status(500).json('Server Problem');
+        }
+    })
+
 }
