@@ -26,7 +26,7 @@
         </div>
       </div>
       <!-- Table List -->
-        <div class="row my-5">
+        <div class="row my-5" v-if="tableData.length > 0">
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>
@@ -38,35 +38,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Edward</td>
-                                    <td>Software Engineering Homework_01</td>
-                                    <td>Finished</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Edward</td>
-                                    <td>Software Engineering Homework_02</td>
-                                    <td>Finished</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Edward</td>
-                                    <td>Software Engineering Homework_03</td>
-                                    <td>Finished</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Edward</td>
-                                    <td>Software Engineering Homework_04</td>
-                                    <td>Finished</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Edward</td>
-                                    <td>Software Engineering Homework_05</td>
-                                    <td>Finished</td>
+                                <tr v-for="(item, index) in tableData" :key="item.id">
+                                    <th scope="row">{{ index + 1 }}</th>
+                                    <td>{{ item.userId }}</td>
+                                    <td>{{ item.taskName }}</td>
+                                    <td>{{ item.status }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -135,7 +111,12 @@
       getAllTask(){
         this.$http.get('task/allTasks').then((res) => {
           try {
-            console.log(res);
+            //data
+            this.tableData = res.data;
+            console.log(this.tableData);
+            //UserID
+            const userIds = data.map(item => item.userId);
+            // console.log(userIds);
           } catch (error) {
 
           }
