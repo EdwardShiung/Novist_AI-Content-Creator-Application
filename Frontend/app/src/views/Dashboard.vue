@@ -40,7 +40,7 @@
                             <tbody>
                                 <tr v-for="(item, index) in tableData" :key="item.id">
                                     <th scope="row">{{ index + 1 }}</th>
-                                    <td>{{ item.userId }}</td>
+                                    <td>{{ item.userId.name }}</td>
                                     <td>{{ item.taskName }}</td>
                                     <td>{{ item.status }}</td>
                                 </tr>
