@@ -22,7 +22,7 @@
             title-classes="nav-link"
             icon="ti-settings"
           >
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="#" v-on:click="logout">Logout</a>
           </drop-down>
         </ul>
       </div>
@@ -58,6 +58,13 @@ export default {
     hideSidebar() {
       this.$sidebar.displaySidebar(false);
     },
+    logout() {
+      // remove token
+      localStorage.removeItem("eleToken");
+      this.$store.dispatch("clearCurrentState");
+
+      this.$router.push("/login");
+    }
   },
 };
 </script>

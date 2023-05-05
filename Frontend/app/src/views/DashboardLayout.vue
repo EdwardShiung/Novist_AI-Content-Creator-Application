@@ -16,7 +16,7 @@
       <li class="nav-item">
         <a class="nav-link">
           <i class="ti-settings"></i>
-          <p>Logout</p>
+          <p v-on:click="logout">Logout</p>
         </a>
       </li>
       <li class="divider"></li>
@@ -49,6 +49,13 @@ export default {
         this.$sidebar.displaySidebar(false);
       }
     },
+    logout() {
+      // remove token
+      localStorage.removeItem("eleToken");
+      this.$store.dispatch("clearCurrentState");
+
+      this.$router.push("/login");
+    }
   },
 };
 </script>
