@@ -81,9 +81,11 @@
     components: {
       StatsCard,
     },
-    /**
-     * Chart data used to render stats, charts. Should be replaced with server data
-     */
+    computed:{
+      user(){
+        return this.$store.getters.user;
+      }
+    },
     data() {
       return {
         statsCards: [
@@ -120,8 +122,29 @@
             footerIcon: "ti-calendar",
           },
         ],
+        tableData: [],
+
       };
     },
+    created(){
+      if(this.isUserAllowedToGetAllTask()) {
+          this.getAllTask();
+      }
+    },
+    methods: {
+      getAllTask(){
+        this.$http.get('task/allTasks').then((res) => {
+          try {
+            console.log(res);
+          } catch (error) {
+
+          }
+        })
+      },
+      isUserAllowedToGetAllTask(user) {
+        return this.user.identity === 'Admin';
+      }
+    }
   };
   </script>
   <style></style>
