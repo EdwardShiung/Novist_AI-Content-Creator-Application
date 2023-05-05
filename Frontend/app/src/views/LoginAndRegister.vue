@@ -121,12 +121,30 @@ import jwt_decode from "jwt-decode";
               //Login & store token
               const { token } = res.data;
               localStorage.setItem("eleToken", token);
+
+              //decode token
+              const decode = jwt_decode(token);
+              console.log(decode);
+
+              //store token to vuex
+              this.$store.dispatch("setisAuthenticated", !this.isEmpty(decode));
+              this.$store.dispatch("setUser", decode);
+
+
               this.$router.push('/');
             })
               } catch (error) {
                 console.log(error);
               }
-            }
+            },
+          isEmpty(value) {
+            return (
+              value === undefined ||
+              value === null ||
+              (typeof value === "object" && Object.keys(value).length === 0) ||
+              (typeof value === "string" && value.trim().length === 0)
+            );
+          }
         }
     }
 
