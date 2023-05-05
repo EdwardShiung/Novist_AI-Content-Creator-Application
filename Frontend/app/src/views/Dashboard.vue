@@ -35,6 +35,7 @@
                                     <th scope="col">User</th>
                                     <th scope="col">To-Do List</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +44,7 @@
                                     <td>{{ item.userId.name }}</td>
                                     <td>{{ item.taskName }}</td>
                                     <td>{{ item.status }}</td>
+                                    <td><button type="button" class="btn btn-primary btn-sm" style="width:50px">FIX</button><button type="button" class="btn btn-danger btn-sm" style="width:50px" v-on:click="deleteTask(item._id)">ＤEL</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -114,9 +116,6 @@
             //data
             this.tableData = res.data;
             console.log(this.tableData);
-            //UserID
-            const userIds = data.map(item => item.userId);
-            // console.log(userIds);
           } catch (error) {
 
           }
@@ -124,6 +123,12 @@
       },
       isUserAllowedToGetAllTask(user) {
         return this.user.identity === 'Admin';
+      },
+      deleteTask(id){
+        this.$http.delete(`task/${id}`).then((res)=>{
+          console.log(id);
+          this.getAllTask();
+        })
       }
     }
   };
