@@ -71,13 +71,13 @@ DELETE {{url_task}}640c2286c623ab69df4905ca
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjc4NTI0OTkwLCJleHAiOjE2Nzg1Mjc5OTB9.MrG4FVKXsgah_Q1jKqZDQ1WC1cfK1Mb2neMobTyrGUE
 
 ###
-#Get All Task
+#Get All Task - Assess Right-API
 GET {{url_task}}allTasks
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgzMjc1Njk0LCJleHAiOjE2ODMyNzg2OTR9.kpQu22ffcxkQcDYahiaNdRGz24IErW8JKSCouXAid2I
 
 
 ###
-#PUT Update One of Tasks
+#PUT Update One of Tasks - Assess Right-API
 PUT {{url_task}}6454bc1cef9c64b7e5d4ae6f
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGE2YjViMDQzOTFlZDdkN2Q4ZTAwOSIsIm5hbWUiOiJFZHdhcmQiLCJpZGVudGl0eSI6IkFkbWluIiwiaWF0IjoxNjgzMjc1Njk0LCJleHAiOjE2ODMyNzg2OTR9.kpQu22ffcxkQcDYahiaNdRGz24IErW8JKSCouXAid2I
 {{json_task}}

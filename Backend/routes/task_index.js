@@ -122,7 +122,7 @@ module.exports = app => {
             console.log("Tell Mew:", req.user.identity)
             if(req.user.identity === "Admin"){
                 const task = await Task.findByIdAndUpdate( req.params.id , {...req.body}, {new: true})
-                console.log(task);
+                task.save()
                 res.status(200).json({task})
             }else{
                 return res.status(401).json("You don't have exces");

@@ -44,7 +44,7 @@
                                     <td>{{ item.userId.name }}</td>
                                     <td>{{ item.taskName }}</td>
                                     <td>{{ item.status }}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm" style="width:50px">FIX</button><button type="button" class="btn btn-danger btn-sm" style="width:50px" v-on:click="deleteTask(item._id)">ＤEL</button></td>
+                                    <td><button type="button" class="btn btn-primary btn-sm" style="width:50px" v-on:click="updateTask(item._id)">FIX</button><button type="button" class="btn btn-danger btn-sm" style="width:50px" v-on:click="deleteTask(item._id)">ＤEL</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -128,6 +128,21 @@
         this.$http.delete(`task/${id}`).then((res)=>{
           console.log(id);
           this.getAllTask();
+        })
+      },
+      updateTask(id){
+        this.$http.put(`task/${id}`).then((res)=>{
+          console.log(res.data.task.status);
+          if(res.data.task.status === 'Completed'){
+            res.data.task.status = "Pending";
+
+          }else{
+            res.data.task.status = "Completed";
+          }
+          this.$http.put(`task/${id}`, { status: res.data.task.status }).then((res)=>{
+          console.log(res.data);
+          this.getAllTask();
+          })
         })
       }
     }
