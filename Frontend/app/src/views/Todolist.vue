@@ -1,64 +1,76 @@
 <template>
-    <body>
-
     <div class="home">
         <div class="todo-head">
-            <header class="text head-title">My Task List</header>
+            <header class="text head-title">Task List</header>
             <div class="inputDiv">
-                <input type="text" class="userInput" placeholder="What is you plan?">
-                <input class="calender" type="date" placeholder="none" required>
-                <span class="addButton">Add</span>
+                <input type="text" class="userInput" v-model="model.taskName" placeholder="What is your plan?">
+                <hr>
+                <button class="addButton" v-on:click="addTask">Add</button>
             </div>
         </div>
         <div class="todo-body">
-            <ul id="myUL">
+            <ul id="myUL" v-for="item in tableData" :key="item.id">
                 <div class="task-bar">
-                    <li>Hit the gym<br>Due Date: 2023/06/24</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li class="checked">Pay bills<br>Due Date: 2023/03/18</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li>Meet Chris at Torgerson Brige<br>Due Date: 2023/05/15</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li>Buy eggs & milk<br>Due Date: 2023/05/12</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li class="checked">Prep for SE midterm exam<br>Due Date: 2023/03/28</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li>Other task 6<br>Due Date: 2023/08/17</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li>Other task 7<br>Due Date: 2023/09/21</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li>Other task 8<br>Due Date: 2023/10/27</li>
-                    <span class="task-icon"></span>
-                </div>
-                <div class="task-bar">
-                    <li>Other task 9<br>Due Date: 2023/11/27</li>
-                    <span class="task-icon"></span>
+                    <li v-on:click="deleteTask(item._id)" >{{ item.taskName }}</li>
                 </div>
               </ul>
         </div>
     </div>
-
-    <!-- <script src="./js/main.js"></script> -->
-
-    </body>
-    </template>
+</template>
     <script>
     export default{
         name:'todolist',
+        data(){
+            return{
+                tableData:[],
+                model:{
+                    userId: '',
+                    taskName: '',
+                    status: '',
+                    date:'2023/04/30'
+                }
+            }
+        },
+        computed:{
+            user(){
+                return this.$store.getters.user;
+            }
+        },
+        created(){
+            this.getAllTask();
+        },
+        methods:{
+            getAllTask(){
+                this.$http.get('task/taskList').then((res) => {
+                try {
+                    //data
+                    // console.log(res.data.tasks)
+                    this.tableData = res.data.tasks;
+                } catch (error) {
+                    }
+                })
+            },
+            addTask(){
+                console.log(this.$store.getters.user.id)
+                this.model.userId = this.$store.getters.user.id;
+                this.model.status = 'Pending'
+                this.$http.post('task/create', this.model).then((res) => {
+                    try {
+                        console.log(this.$store.getters.user)
+                    } catch (error) {
+                        console.log(error);
+                    }
+                })
+                this.getAllTask();
+            },
+            deleteTask(id){
+                this.$http.delete(`task/${id}`).then((res)=>{
+                    console.log(id);
+                    this.getAllTask();
+                })
+            },
+        }
+
     }
 
     </script>
@@ -115,10 +127,10 @@
     }
 
     .addButton {
-        background-color: #acacac;
+        background-color: #84a7f9;
         border: none;
         border-radius: 6px;
-        color: Black;
+        color: white;
         padding: 10px;
         text-align: center;
         text-decoration: none;
@@ -151,7 +163,8 @@
         position: relative;
         padding: 12px 8px 12px 40px;
         list-style-type: none;
-        background: #f19494;
+        background: #84a7f9;
+        color: white;
         font-size: 25px;
         text-align: left;
         transition: 0.2s;

@@ -44,7 +44,7 @@
                                     <td>{{ item.userId.name }}</td>
                                     <td>{{ item.taskName }}</td>
                                     <td>{{ item.status }}</td>
-                                    <td><button type="button" class="btn btn-primary btn-sm" style="width:50px" v-on:click="updateTask(item._id)">FIX</button><button type="button" class="btn btn-danger btn-sm" style="width:50px" v-on:click="deleteTask(item._id)">ＤEL</button></td>
+                                    <td><button type="button" class="btn btn-primary btn-sm" style="width:50px" v-on:click="updateTask(item._id)">FIX</button><button type="button" class="btn btn-danger btn-sm" style="width:50px" v-on:click="deleteTask(item._id)">DEL</button></td>
                                 </tr>
                             </tbody>
                         </table>
