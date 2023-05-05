@@ -87,7 +87,7 @@ module.exports = app => {
         }
     })
 
-    // Access-Right- Task
+    //- Access-Right- Task
     router.get('/allTasks', passport.authenticate('jwt', {session: false}), async (req, res) =>{
         try {
         console.log("Tell Mew:", req.user.identity)
@@ -101,4 +101,18 @@ module.exports = app => {
         } catch (error) {
         }
   })
+    //- Access-Right- Delete Task
+    router.delete('/:id', passport.authenticate('jwt', {session: false}), async(req, res) => {
+        try {
+            console.log("Tell Mew:", req.user.identity)
+            if(req.user.identity === "Admin"){
+                const data = await Task.findByIdAndDelete( req.params.id , {...req.body}, {new: true})
+                console.log(data)
+                res.status(200).json({success: true})
+            }else{
+                return res.status(401).json("You don't have exces");
+            }
+            } catch (error) {
+        }
+    })
 }
