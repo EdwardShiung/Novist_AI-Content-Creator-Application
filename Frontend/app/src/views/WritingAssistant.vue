@@ -41,7 +41,7 @@
                                 <div class="d-flex align-items-start mb-4">
                                     <img src="../../src/assets/img/novist-logo.png" width="60" alt="">
                                     <p class="bg-body-secondary p-3 m-0 rounded flex-fill" style="background-color: #D9D9D9;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, perferendis iure. Eos ipsa, iusto dicta magni neque iure aspernatur veniam placeat quam, non porro cupiditate earum nam eligendi dolores explicabo?
+                                        Hi, I'm Novist. How can I help you?
                                     </p>
                                 </div>
                                 <!-- Message Template -->
@@ -49,27 +49,20 @@
                                 <div class="d-flex align-items-start mb-4">
                                     <img src="../../src/assets/img/user-logo.png" width="60" alt="" >
                                     <p class="bg-body-secondary p-3 m-0 rounded flex-fill" style="background-color: #f1f1f1;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, perferendis iure. Eos ipsa, iusto dicta magni neque iure aspernatur veniam placeat quam, non porro cupiditate earum nam eligendi dolores explicabo?
-                                    </p>
-                                </div>
-
-                                <div class="d-flex align-items-start mb-4">
-                                    <img src="../../src/assets/img/user-logo.png" width="60" alt="">
-                                    <p class="bg-body-secondary p-3 m-0 rounded flex-fill" style="background-color: #f1f1f1;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, perferendis iure. Eos ipsa, iusto dicta magni neque iure aspernatur veniam placeat quam, non porro cupiditate earum nam eligendi dolores explicabo?
+                                        As a YouTuber, could you please provide me with more ideas for traveling to New York?
                                     </p>
                                 </div>
                                 <!-- GPT -->
                                 <div class="d-flex align-items-start mb-4">
                                     <img src="../../src/assets/img/novist-logo.png" width="60" alt="">
                                     <p class="bg-body-secondary p-3 m-0 rounded flex-fill" style="background-color: #D9D9D9;">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate dicta sapiente consectetur assumenda veritatis alias perferendis, quas rerum? Vel magnam odit nihil soluta nulla reiciendis corrupti omnis facere molestiae voluptatibus? Illum similique possimus inventore? Maiores sequi totam itaque voluptatibus nulla quas et vel a numquam commodi in tempore, ab facilis voluptate? Dolorem voluptatibus quae expedita harum excepturi asperiores, atque neque dignissimos quod quidem tenetur voluptate ratione maxime debitis nemo eum dolor totam, officia commodi architecto et. Non sint libero optio.
+                                        If you're traveling to New York, there's no shortage of things to do. Take a stroll or bike ride through Central Park, walk across the Brooklyn Bridge for a great view of the city skyline, or explore the Metropolitan Museum of Art. Try some famous street food, catch a Broadway show, or take a boat tour around Manhattan. Visit the 9/11 Memorial and Museum, explore the unique neighborhoods of New York, and take the elevator to the top of the Empire State Building for a bird's-eye view of the city. Finally, check out some of the world-class museums, such as the American Museum of Natural History, the Guggenheim, and the Museum of Modern Art.
                                     </p>
                                 </div>
                                 <div class="d-flex align-items-start mb-4">
                                     <img src="../../src/assets/img/novist-logo.png" width="60" alt="">
                                     <p class="bg-body-secondary p-3 m-0 rounded flex-fill" style="background-color: #D9D9D9;">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nam?
+                                        Would you like to know anything else?
                                     </p>
                                 </div>
                             </div>
