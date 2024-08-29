@@ -2,7 +2,7 @@
 
 ## Description
 
-The Novist To-Do List app addresses the common problem of users losing interest and abandoning traditional to-do list apps, which lack interactive features. To combat this Novist incorporates various interactive features, such as a creative writing component function and an intelligent chat box with the system, to encourage users to be more engaged with the app. The app aims to provide an innovative and interactive way of managing tasks that is not limited to software engineers, but can be used by anyone who wants to track their tasks efficiently and creatively. With its unique features, Novist offers a significant improvement over traditional to-do list apps, providing users with a special way to stay on track and accomplish their tasks on time.
+The Novist app addresses the common challenge of users losing interest in traditional apps that lack engaging features. Novist integrates an AI-Agent that enables users to effortlessly become content creators. This AI-Agent supports users with creative writing tools and an intelligent chat box, providing a more interactive and personalized experience. Novist is designed for anyone looking to manage their creative projects efficiently and creatively, not just for software engineers. By leveraging AI, Novist offers a unique and engaging way for users to stay inspired and accomplish their creative goals.
 
 ## Installation
 
